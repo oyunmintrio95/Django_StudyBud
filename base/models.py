@@ -22,6 +22,9 @@ class Room(models.Model):
     # auto_now_add will only save the time when it was first saved/ won't be changed after...
     created = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-updated', '-created'] # with '-' it will order descending order, without it ascending
+
     def __str__(self):
         # return str(self.updated) since the method returns string, convert Date to string
         return self.name
