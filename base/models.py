@@ -17,7 +17,7 @@ class Room(models.Model):
     name = models.CharField(max_length=200)
     #null is allowed. when submitting form form being empty is allowed(blank = True)
     description = models.TextField(null=True, blank = True)
-    # participants =
+    participants = models.ManyToManyField(User, related_name='participants', blank=True)
     updated = models.DateTimeField(auto_now=True) # auto_now will save every update
     # auto_now_add will only save the time when it was first saved/ won't be changed after...
     created = models.DateTimeField(auto_now_add=True)
